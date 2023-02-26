@@ -41,7 +41,7 @@ function App() {
   return (
     <div
       style={{ backgroundImage: `url(${backgroundImage})` }}
-      className="min-w-450px md:m-0 md:p-0 md:w-screen md:h-screen flex flex-col items-center justify-start"
+      className="min-w-450px md:m-0 md:p-0 w-screen h-screen flex flex-col items-center justify-start"
     >
       <div className="bg-transparent min-w-480 max-w-4xl md:w-3/6 md:h-6/5 flex flex-col justify-start items-center mt-28">
         <h1 className="text-white box text-7xl font-bold shadow-lg shadow-red-500">Frases Celebres</h1>
