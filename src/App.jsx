@@ -67,8 +67,8 @@ function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
       className="w-screen h-screen sm:mx-4 my-auto md:w-screen md:h-screen m-0 p-0 md:m-0 md:p-0 sm:m-0 sm:p-0 lg:m-0 lg:p-0 xl:m-0 xl:p-0 2xl:m-0 2xl:p-0 flex flex-col items-center justify-center bg-cover bg-center sm:w-screen sm:h-screen box-content sm-p-0"
     >
-      <div className="bg-white bg-opacity-25 rounded-2xl shadow-xl shadow-red-600 md:w-2/5 md:h-28 2xl:y-10 flex flex-col justify-center items-center container w-3/4 h-1/5 mx-2 mt-6">
-        <h1 className="bg-transparent text-white text-4xl md:text-4xl flex items-center justify-center text-center font-bold shadow-lg shadow-red-500 px-auto md:w- rounded-2xl md:p-4 mx-2 w-full h-full xl:text-6xl lg:text-5xl sm:text-5xl">Famous Phrases</h1>
+      <div className="bg-white bg-opacity-25 rounded-2xl shadow-xl shadow-red-600 md:w-4/5 md:h-28 2xl:y-10 lg:w-3/5 flex flex-col justify-center items-center container w-3/4 h-1/5 mx-2 mt-6 xl:w-6/12 2xl:w-3/5">
+        <h1 className="bg-transparent text-white text-4xl md:text-7xl flex items-center justify-center text-center font-bold shadow-lg shadow-red-500 px-auto md:w- rounded-2xl md:p-4 mx-2 w-full h-full xl:text-7xl lg:text-6xl sm:text-5xl 2xl:text-8xl">Famous Phrases</h1>
       </div>
       <Card phrase={Phrases[indexPhrase]} />
       <Button handleClick={() => { changePhrase(); changeBackgroundImage(); }} />
