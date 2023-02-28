@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './components/Card';
 import Button from './components/Button';
 import Phrases from './assets/phrases.json';
@@ -15,6 +15,10 @@ import backgroundImage10 from './assets/imagenes/Filosofia/10.jpg';
 import backgroundImage11 from './assets/imagenes/Filosofia/11.jpg';
 
 function App() {
+  useEffect(() => {
+    prefetchImages();
+  }, []);
+
   const [indexPhrase, setPhrase] = useState(0);
   const [backgroundImage, setBackgroundImage] = useState(backgroundImage1);
 
@@ -38,16 +42,36 @@ function App() {
     else setBackgroundImage(backgroundImage1);
   };
 
+  const prefetchImages = () => {
+    const images = [
+      backgroundImage1,
+      backgroundImage2,
+      backgroundImage3,
+      backgroundImage4,
+      backgroundImage5,
+      backgroundImage6,
+      backgroundImage7,
+      backgroundImage8,
+      backgroundImage9,
+      backgroundImage10,
+      backgroundImage11,
+    ];
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  };
+
   return (
     <div
       style={{ backgroundImage: `url(${backgroundImage})` }}
-      className="min-w-450px md:m-0 md:p-0 w-screen h-screen flex flex-col items-center justify-start"
+      className="w-screen h-screen sm:mx-4 my-auto md:w-screen md:h-screen m-0 p-0 md:m-0 md:p-0 sm:m-0 sm:p-0 lg:m-0 lg:p-0 xl:m-0 xl:p-0 2xl:m-0 2xl:p-0 flex flex-col items-center justify-center bg-cover bg-center sm:w-screen sm:h-screen box-content sm-p-0"
     >
-      <div className="bg-transparent min-w-480 max-w-4xl md:w-3/6 md:h-6/5 flex flex-col justify-start items-center mt-28">
-        <h1 className="text-white box text-7xl font-bold shadow-lg shadow-red-500">Frases Celebres</h1>
+      <div className="bg-white bg-opacity-25 rounded-2xl shadow-xl shadow-red-600 md:w-2/5 md:h-28 2xl:y-10 flex flex-col justify-center items-center container w-3/4 h-1/5 mx-2 mt-6">
+        <h1 className="bg-transparent text-white text-4xl md:text-4xl flex items-center justify-center text-center font-bold shadow-lg shadow-red-500 px-auto md:w- rounded-2xl md:p-4 mx-2 w-full h-full xl:text-6xl lg:text-5xl sm:text-5xl">Famous Phrases</h1>
       </div>
-      <Card Phrases={Phrases[indexPhrase]} changePhrase={changePhrase} />
-      <Button handleClick={() => {changePhrase(); changeBackgroundImage();}} />
+      <Card phrase={Phrases[indexPhrase]} />
+      <Button handleClick={() => { changePhrase(); changeBackgroundImage(); }} />
     </div> 
   );
 }

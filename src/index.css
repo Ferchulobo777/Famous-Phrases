@@ -6,16 +6,30 @@
 
 h1 {
     filter: drop-shadow(3px 3px 3px #00ffff);
+    -webkit-filter: drop-shadow(5px 5px 5px #000);
 }
 
 h2 {
     filter: drop-shadow(1px 1px 1px #fff);
+    -webkit-filter: drop-shadow(5px 5px 5px #000);
 }
 
 span {
     filter: drop-shadow(1px 1px 1px #00ffff);
+    -webkit-filter: drop-shadow(5px 5px 5px #000);
 }
 
 p {
-    filter: drop-shadow(2px 2px 2px #00ffff);
+    filter: drop-shadow(3px 3px 3px #00ffff);
+    -webkit-filter: drop-shadow(5px 5px 5px #000);
+}
+
+span:hover{
+    filter: drop-shadow(3px 3px 3px #00ffff);
+    -webkit-filter: drop-shadow(3px 3px 3px #fff);
+}
+
+button{
+    filter: drop-shadow(3px 3px 3px #00ffff);
+    -webkit-filter: drop-shadow(3px 3px 3px #fff);
 }
