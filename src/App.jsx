@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './components/Card';
 import Button from './components/Button';
 import Phrases from './assets/phrases.json';
+import { motion } from "framer-motion";
 import backgroundImage1 from './assets/imagenes/Filosofia/1.jpg';
 import backgroundImage2 from './assets/imagenes/Filosofia/2.jpg';
 import backgroundImage3 from './assets/imagenes/Filosofia/3.jpg';
@@ -28,34 +29,27 @@ function App() {
     else setPhrase(newPhraseVisible);
   };
 
+  const images = [
+    backgroundImage1,
+    backgroundImage2,
+    backgroundImage3,
+    backgroundImage4,
+    backgroundImage5,
+    backgroundImage6,
+    backgroundImage7,
+    backgroundImage8,
+    backgroundImage9,
+    backgroundImage10,
+    backgroundImage11,
+  ];
+
   const changeBackgroundImage = () => {
-    if (backgroundImage === backgroundImage1) setBackgroundImage(backgroundImage2);
-    else if (backgroundImage === backgroundImage2) setBackgroundImage(backgroundImage3);
-    else if (backgroundImage === backgroundImage3) setBackgroundImage(backgroundImage4);
-    else if (backgroundImage === backgroundImage4) setBackgroundImage(backgroundImage5);
-    else if (backgroundImage === backgroundImage5) setBackgroundImage(backgroundImage6);
-    else if (backgroundImage === backgroundImage6) setBackgroundImage(backgroundImage7);
-    else if (backgroundImage === backgroundImage7) setBackgroundImage(backgroundImage8);
-    else if (backgroundImage === backgroundImage8) setBackgroundImage(backgroundImage9);
-    else if (backgroundImage === backgroundImage9) setBackgroundImage(backgroundImage10);
-    else if (backgroundImage === backgroundImage10) setBackgroundImage(backgroundImage11);
-    else setBackgroundImage(backgroundImage1);
+    const randomIndex = Math.floor(Math.random() * images.length);
+    console.log(`Changing background image to ${images[randomIndex]}`);
+    setBackgroundImage(images[randomIndex]);
   };
 
   const prefetchImages = () => {
-    const images = [
-      backgroundImage1,
-      backgroundImage2,
-      backgroundImage3,
-      backgroundImage4,
-      backgroundImage5,
-      backgroundImage6,
-      backgroundImage7,
-      backgroundImage8,
-      backgroundImage9,
-      backgroundImage10,
-      backgroundImage11,
-    ];
     images.forEach((image) => {
       const img = new Image();
       img.src = image;
@@ -67,12 +61,14 @@ function App() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
       className="w-screen h-screen sm:mx-4 my-auto md:w-screen md:h-screen m-0 p-0 md:m-0 md:p-0 sm:m-0 sm:p-0 lg:m-0 lg:p-0 xl:m-0 xl:p-0 2xl:m-0 2xl:p-0 flex flex-col items-center justify-center bg-cover bg-center sm:w-screen sm:h-screen box-content sm-p-0"
     >
-      <div className="bg-white bg-opacity-25 rounded-2xl shadow-xl shadow-red-600 md:w-4/5 md:h-28 2xl:y-10 lg:w-3/5 flex flex-col justify-center items-center container w-3/4 h-1/5 mx-2 mt-6 xl:w-6/12 2xl:w-3/5">
-        <h1 className="bg-transparent text-white text-4xl md:text-7xl flex items-center justify-center text-center font-bold shadow-lg shadow-red-500 px-auto md:w- rounded-2xl md:p-4 mx-2 w-full h-full xl:text-7xl lg:text-6xl sm:text-5xl 2xl:text-8xl">Famous Phrases</h1>
-      </div>
       <Card phrase={Phrases[indexPhrase]} />
-      <Button handleClick={() => { changePhrase(); changeBackgroundImage(); }} />
-    </div> 
+      <div className="flex flex-col sm:flex-row justify-center items-center mt-4 space-y-2 sm:space-y-0 sm:space-x-4">
+      <Button label="Change Phrase"
+       changePhrase={changePhrase}
+       changeBackgroundImage={changeBackgroundImage}
+       />
+      </div>
+    </div>
   );
 }
 
